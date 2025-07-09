@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposals Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .proposals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .proposal-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e1e8ed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .proposal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .proposal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .proposal-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .proposal-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .proposal-description {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .proposal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .proposal-link:hover {
+            color: #764ba2;
+        }
+
+        .proposal-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .proposal-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e1e8ed;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .proposals-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Proposals Portal</h1>
+            <p>Access all project proposals and documentation</p>
+        </div>
+
+        <div class="proposals-grid">
+            <div class="proposal-card">
+                <div class="proposal-icon">📋</div>
+                <h3 class="proposal-title">Comprehensive Proposal</h3>
+                <p class="proposal-description">Complete project overview with detailed specifications, timelines, and implementation strategy.</p>
+                <a href="comprehensive-proposal.html" class="proposal-link">View Proposal</a>
+            </div>
+
+            <div class="proposal-card">
+                <div class="proposal-icon">⚖️</div>
+                <h3 class="proposal-title">E-Legislation</h3>
+                <p class="proposal-description">Digital transformation of legislative processes and electronic governance solutions.</p>
+                <a href="E-legislation.html" class="proposal-link">View Proposal</a>
+            </div>
+
+            <div class="proposal-card">
+                <div class="proposal-icon">📊</div>
+                <h3 class="proposal-title">E-Procurement Slides</h3>
+                <p class="proposal-description">Presentation slides covering electronic procurement systems and implementation roadmap.</p>
+                <a href="E-proc-slides.html" class="proposal-link">View Slides</a>
+            </div>
+
+            <div class="proposal-card">
+                <div class="proposal-icon">💼</div>
+                <h3 class="proposal-title">E-Procurement</h3>
+                <p class="proposal-description">Comprehensive electronic procurement solution for streamlined vendor management and purchasing.</p>
+                <a href="E-Procurement.html" class="proposal-link">View Proposal</a>
+            </div>
+
+            <div class="proposal-card">
+                <div class="proposal-icon">🏛️</div>
+                <h3 class="proposal-title">Integrated Justice Solution</h3>
+                <p class="proposal-description">End-to-end digital justice system integrating courts, legal processes, and case management.</p>
+                <a href="integrated-justice-solution.html" class="proposal-link">View Proposal</a>
+            </div>
+
+            <div class="proposal-card">
+                <div class="proposal-icon">🔍</div>
+                <h3 class="proposal-title">StateIntel</h3>
+                <p class="proposal-description">Advanced state intelligence and analytics platform for data-driven governance decisions.</p>
+                <a href="StateIntel.html" class="proposal-link">View Proposal</a>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">6</span>
+                <span class="stat-label">Total Proposals</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Digital Ready</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Access Available</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

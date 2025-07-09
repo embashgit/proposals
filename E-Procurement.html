@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Procurement & Project Management Proposal - Ministry of Works Nigeria</title>
+    <style>
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 0;
+            margin-bottom: 30px;
+            border-top: 4px solid #3b82f6;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        
+        .header p {
+            margin: 15px 0 0 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 25px;
+            border: 1px solid #e8e8e8;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e8e8e8;
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 1.8em;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin-top: 30px;
+            font-weight: normal;
+        }
+        
+        .section h4 {
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-top: 25px;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: #f8f9fa;
+            color: #2c3e50;
+            padding: 25px;
+            border: 1px solid #e8e8e8;
+            border-left: 4px solid #3b82f6;
+            margin: 25px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            color: #2c3e50;
+            padding: 25px;
+            border: 2px solid #e8e8e8;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            border-color: #3b82f6;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .flow-diagram {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .flow-step {
+            background: #f8f9fa;
+            color: #2c3e50;
+            padding: 15px 20px;
+            border: 2px solid #e8e8e8;
+            margin: 10px;
+            text-align: center;
+            min-width: 150px;
+            display: inline-block;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+        
+        .flow-step:hover {
+            border-color: #3b82f6;
+        }
+        
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .architecture-diagram {
+            background: #fdfdfd;
+            border: 1px solid #e8e8e8;
+            padding: 30px;
+            margin: 25px 0;
+        }
+        
+        .layer {
+            background: white;
+            border: 1px solid #d0d0d0;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .layer h4 {
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .component {
+            background: #f8f9fa;
+            border: 1px solid #d0d0d0;
+            padding: 10px;
+            margin: 8px;
+            display: inline-block;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #bdc3c7;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 25px;
+            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-left: 3px solid #3b82f6;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 30px;
+            width: 10px;
+            height: 10px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .financial-table th,
+        .financial-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        
+        .financial-table th {
+            background: #f8f9fa;
+            color: #2c3e50;
+            font-weight: 600;
+            border-bottom: 2px solid #e8e8e8;
+        }
+        
+        .financial-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .download-note {
+            background: #f8f9fa;
+            color: #2c3e50;
+            padding: 20px;
+            border: 1px solid #e8e8e8;
+            border-left: 4px solid #3b82f6;
+            margin: 25px 0;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            .header {
+                background: #1e3c72 !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>DIGITAL PROCUREMENT & PROJECT MANAGEMENT SOLUTION</h1>
+        <p>Comprehensive E-Procurement Platform for Nigeria's Ministry of Works</p>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 20px; margin-top: 25px;">
+            <div style="text-align: left;">
+                <p style="margin: 0; font-size: 1em;"><strong>Submitted by:</strong> Techonstack LTD</p>
+                <p style="margin: 5px 0 0 0; font-size: 0.9em; opacity: 0.8;">techonstack.com | ibrahimembash@gmail.com</p>
+            </div>
+            <div style="text-align: right;">
+                <p style="margin: 0; font-size: 1em;"><strong>Date:</strong> July 2025</p>
+                <p style="margin: 5px 0 0 0; font-size: 0.9em; opacity: 0.8;">Federal Ministry of Works and Housing</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="download-note">
+        <strong>📥 Download Instructions:</strong> Right-click this page and select "Save As" to download this proposal as an HTML file. You can also print to PDF using your browser's print function.
+    </div>
+
+    <div class="section">
+        <h2>EXECUTIVE SUMMARY</h2>
+        <p>Nigeria's infrastructure development sector faces significant challenges in procurement transparency, project delivery timelines, and cost management. Our Digital Procurement & Project Management Platform addresses these critical issues through a comprehensive technology solution that ensures transparency, efficiency, and accountability in infrastructure projects.</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">85%</span>
+                Reduction in Procurement Cycle Time
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">60%</span>
+                Improvement in Project Delivery
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">40%</span>
+                Cost Savings Through Optimization
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">535%</span>
+                Return on Investment (First Year)
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>DETAILED SYSTEM ARCHITECTURE</h2>
+        
+        <!-- Visual Architecture Diagram for Non-Technical Stakeholders -->
+        <div style="margin-bottom: 40px;">
+            <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px;">System Architecture Overview - For Ministry Leadership</h3>
+            <p style="text-align: center; color: #7f8c8d; margin-bottom: 30px;">This diagram shows how different parts of the system work together to deliver a complete digital procurement solution</p>
+            
+            <svg width="100%" height="600" viewBox="0 0 1000 600" style="border: 1px solid #e8e8e8; background: #fdfdfd;">
+                <!-- Background sections -->
+                <defs>
+                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="2" dy="2" stdDeviation="1" flood-color="#000" flood-opacity="0.1"/>
+                    </filter>
+                </defs>
+                
+                <!-- Users Section -->
+                <rect x="50" y="50" width="900" height="80" fill="#2c3e50" rx="0" filter="url(#shadow)"/>
+                <text x="500" y="80" text-anchor="middle" fill="white" font-size="18" font-weight="normal">USERS</text>
+                <text x="500" y="105" text-anchor="middle" fill="white" font-size="14">Ministry Officials | Contractors | Citizens | Field Officers</text>
+                
+                <!-- User Icons -->
+                <g transform="translate(100, 140)">
+                    <rect x="0" y="0" width="150" height="60" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="18">🏛️</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="12" fill="#2c3e50">Ministry Officials</text>
+                </g>
+                
+                <g transform="translate(300, 140)">
+                    <rect x="0" y="0" width="150" height="60" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="18">🏗️</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="12" fill="#2c3e50">Contractors</text>
+                </g>
+                
+                <g transform="translate(500, 140)">
+                    <rect x="0" y="0" width="150" height="60" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="18">👥</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="12" fill="#2c3e50">Citizens</text>
+                </g>
+                
+                <g transform="translate(700, 140)">
+                    <rect x="0" y="0" width="150" height="60" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="18">📱</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="12" fill="#2c3e50">Field Officers</text>
+                </g>
+                
+                <!-- Arrows pointing down -->
+                <polygon points="175,220 185,220 180,240" fill="#7f8c8d"/>
+                <polygon points="375,220 385,220 380,240" fill="#7f8c8d"/>
+                <polygon points="575,220 585,220 580,240" fill="#7f8c8d"/>
+                <polygon points="775,220 785,220 780,240" fill="#7f8c8d"/>
+                
+                <!-- Security Layer -->
+                <rect x="50" y="250" width="900" height="50" fill="#34495e" rx="0" filter="url(#shadow)"/>
+                <text x="500" y="270" text-anchor="middle" fill="white" font-size="16" font-weight="normal">SECURITY & AUTHENTICATION LAYER</text>
+                <text x="500" y="290" text-anchor="middle" fill="white" font-size="12">Bank-Level Security | User Verification | Access Control</text>
+                
+                <!-- Arrow down -->
+                <polygon points="495,320 505,320 500,340" fill="#7f8c8d"/>
+                
+                <!-- Core System -->
+                <rect x="50" y="350" width="900" height="120" fill="#3b82f6" rx="0" filter="url(#shadow)"/>
+                <text x="500" y="380" text-anchor="middle" fill="white" font-size="18" font-weight="normal">CORE DIGITAL PROCUREMENT SYSTEM</text>
+                
+                <!-- System Components -->
+                <g transform="translate(80, 390)">
+                    <rect x="0" y="0" width="160" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="80" y="20" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="normal">E-Procurement</text>
+                    <text x="80" y="35" text-anchor="middle" font-size="10" fill="#7f8c8d">Tender Management</text>
+                </g>
+                
+                <g transform="translate(260, 390)">
+                    <rect x="0" y="0" width="160" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="80" y="20" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="normal">Project Tracking</text>
+                    <text x="80" y="35" text-anchor="middle" font-size="10" fill="#7f8c8d">Real-time Monitoring</text>
+                </g>
+                
+                <g transform="translate(440, 390)">
+                    <rect x="0" y="0" width="160" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="80" y="20" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="normal">Financial System</text>
+                    <text x="80" y="35" text-anchor="middle" font-size="10" fill="#7f8c8d">Budget & Payments</text>
+                </g>
+                
+                <g transform="translate(620, 390)">
+                    <rect x="0" y="0" width="160" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="80" y="20" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="normal">Analytics</text>
+                    <text x="80" y="35" text-anchor="middle" font-size="10" fill="#7f8c8d">Reports & Insights</text>
+                </g>
+                
+                <!-- Arrow down -->
+                <polygon points="495,490 505,490 500,510" fill="#7f8c8d"/>
+                
+                <!-- Blockchain & Data Layer -->
+                <rect x="50" y="520" width="440" height="60" fill="#34495e" rx="0" filter="url(#shadow)"/>
+                <text x="270" y="540" text-anchor="middle" fill="white" font-size="14" font-weight="normal">BLOCKCHAIN TRANSPARENCY</text>
+                <text x="270" y="560" text-anchor="middle" fill="white" font-size="11">Immutable Records | Audit Trail | Smart Contracts</text>
+                
+                <!-- Data Storage -->
+                <rect x="510" y="520" width="440" height="60" fill="#2c3e50" rx="0" filter="url(#shadow)"/>
+                <text x="730" y="540" text-anchor="middle" fill="white" font-size="14" font-weight="normal">SECURE DATA STORAGE</text>
+                <text x="730" y="560" text-anchor="middle" fill="white" font-size="11">Encrypted Database | Document Storage | Backup Systems</text>
+                
+                <!-- Data flow arrows -->
+                <path d="M 500 470 Q 400 500 270 520" stroke="#7f8c8d" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                <path d="M 500 470 Q 600 500 730 520" stroke="#7f8c8d" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                
+                <!-- Arrow marker definition -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#7f8c8d"/>
+                    </marker>
+                </defs>
+                
+                <!-- Benefits callouts -->
+                <g transform="translate(820, 250)">
+                    <rect x="0" y="0" width="130" height="100" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0" fill-opacity="1"/>
+                    <text x="65" y="20" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="normal">Techonstack Solution</text>
+                    <text x="65" y="40" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">85% Faster Process</text>
+                    <text x="65" y="60" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">100% Transparent</text>
+                    <text x="65" y="80" text-anchor="middle" font-size="10" fill="#7f8c8d">All Operations</text>
+                    <text x="65" y="95" text-anchor="middle" font-size="9" fill="#3b82f6">techonstack.com</text>
+                </g>
+            
+            </svg> For Ministry Leadership</h3>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">This diagram shows how different parts of the system work together to deliver a complete digital procurement solution</p>
+            
+            <svg width="100%" height="600" viewBox="0 0 1000 600" style="border: 2px solid #3b82f6; border-radius: 10px; background: linear-gradient(135deg, #F0F7FF 0%, #E0F0FF 100%);">
+                <!-- Background sections -->
+                <defs>
+                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="3" dy="3" stdDeviation="2" flood-color="#000" flood-opacity="0.2"/>
+                    </filter>
+                </defs>
+                
+                <!-- Users Section -->
+                <rect x="50" y="50" width="900" height="80" fill="#3b82f6" rx="10" filter="url(#shadow)"/>
+                <text x="500" y="80" text-anchor="middle" fill="white" font-size="18" font-weight="bold">👥 USERS</text>
+                <text x="500" y="105" text-anchor="middle" fill="white" font-size="14">Ministry Officials | Contractors | Citizens | Field Officers</text>
+                
+                <!-- User Icons -->
+                <g transform="translate(100, 140)">
+                    <rect x="0" y="0" width="150" height="60" fill="white" stroke="#F7931E" stroke-width="2" rx="8"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="20">🏛️</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="12" fill="#3b82f6">Ministry Officials</text>
+                </g>
+                
+                <g transform="translate(300, 140)">
+                    <rect x="0" y="0" width="150" height="60" fill="white" stroke="#F7931E" stroke-width="2" rx="8"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="20">🏗️</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="12" fill="#3b82f6">Contractors</text>
+                </g>
+                
+                <g transform="translate(500, 140)">
+                    <rect x="0" y="0" width="150" height="60" fill="white" stroke="#F7931E" stroke-width="2" rx="8"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="20">👥</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="12" fill="#3b82f6">Citizens</text>
+                </g>
+                
+                <g transform="translate(700, 140)">
+                    <rect x="0" y="0" width="150" height="60" fill="white" stroke="#F7931E" stroke-width="2" rx="8"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="20">📱</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="12" fill="#3b82f6">Field Officers</text>
+                </g>
+                
+                <!-- Arrows pointing down -->
+                <polygon points="175,220 185,220 180,240" fill="#F7931E"/>
+                <polygon points="375,220 385,220 380,240" fill="#F7931E"/>
+                <polygon points="575,220 585,220 580,240" fill="#F7931E"/>
+                <polygon points="775,220 785,220 780,240" fill="#F7931E"/>
+                
+                <!-- Security Layer -->
+                <rect x="50" y="250" width="900" height="50" fill="#F7931E" rx="8" filter="url(#shadow)"/>
+                <text x="500" y="270" text-anchor="middle" fill="white" font-size="16" font-weight="bold">🔐 SECURITY & AUTHENTICATION LAYER</text>
+                <text x="500" y="290" text-anchor="middle" fill="white" font-size="12">Bank-Level Security | User Verification | Access Control</text>
+                
+                <!-- Arrow down -->
+                <polygon points="495,320 505,320 500,340" fill="#F7931E"/>
+                
+                <!-- Core System -->
+                <rect x="50" y="350" width="900" height="120" fill="#3b82f6" rx="10" filter="url(#shadow)"/>
+                <text x="500" y="380" text-anchor="middle" fill="white" font-size="18" font-weight="bold">⚙️ CORE DIGITAL PROCUREMENT SYSTEM</text>
+                
+                <!-- System Components -->
+                <g transform="translate(80, 390)">
+                    <rect x="0" y="0" width="160" height="50" fill="white" stroke="#F7931E" stroke-width="2" rx="6"/>
+                    <text x="80" y="20" text-anchor="middle" font-size="12" fill="#3b82f6" font-weight="bold">📋 E-Procurement</text>
+                    <text x="80" y="35" text-anchor="middle" font-size="10" fill="#666">Tender Management</text>
+                </g>
+                
+                <g transform="translate(260, 390)">
+                    <rect x="0" y="0" width="160" height="50" fill="white" stroke="#F7931E" stroke-width="2" rx="6"/>
+                    <text x="80" y="20" text-anchor="middle" font-size="12" fill="#3b82f6" font-weight="bold">📊 Project Tracking</text>
+                    <text x="80" y="35" text-anchor="middle" font-size="10" fill="#666">Real-time Monitoring</text>
+                </g>
+                
+                <g transform="translate(440, 390)">
+                    <rect x="0" y="0" width="160" height="50" fill="white" stroke="#F7931E" stroke-width="2" rx="6"/>
+                    <text x="80" y="20" text-anchor="middle" font-size="12" fill="#3b82f6" font-weight="bold">💰 Financial System</text>
+                    <text x="80" y="35" text-anchor="middle" font-size="10" fill="#666">Budget & Payments</text>
+                </g>
+                
+                <g transform="translate(620, 390)">
+                    <rect x="0" y="0" width="160" height="50" fill="white" stroke="#F7931E" stroke-width="2" rx="6"/>
+                    <text x="80" y="20" text-anchor="middle" font-size="12" fill="#3b82f6" font-weight="bold">📈 Analytics</text>
+                    <text x="80" y="35" text-anchor="middle" font-size="10" fill="#666">Reports & Insights</text>
+                </g>
+                
+                <!-- Arrow down -->
+                <polygon points="495,490 505,490 500,510" fill="#F7931E"/>
+                
+                <!-- Blockchain & Data Layer -->
+                <rect x="50" y="520" width="440" height="60" fill="#2563eb" rx="8" filter="url(#shadow)"/>
+                <text x="270" y="540" text-anchor="middle" fill="white" font-size="14" font-weight="bold">⛓️ BLOCKCHAIN TRANSPARENCY</text>
+                <text x="270" y="560" text-anchor="middle" fill="white" font-size="11">Immutable Records | Audit Trail | Smart Contracts</text>
+                
+                <!-- Data Storage -->
+                <rect x="510" y="520" width="440" height="60" fill="#1d4ed8" rx="8" filter="url(#shadow)"/>
+                <text x="730" y="540" text-anchor="middle" fill="white" font-size="14" font-weight="bold">💾 SECURE DATA STORAGE</text>
+                <text x="730" y="560" text-anchor="middle" fill="white" font-size="11">Encrypted Database | Document Storage | Backup Systems</text>
+                
+                <!-- Data flow arrows -->
+                <path d="M 500 470 Q 400 500 270 520" stroke="#F7931E" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                <path d="M 500 470 Q 600 500 730 520" stroke="#F7931E" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                
+                <!-- Arrow marker definition -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#F7931E"/>
+                    </marker>
+                </defs>
+                
+                <!-- Benefits callouts with logo -->
+                <g transform="translate(800, 240)">
+                    <rect x="0" y="0" width="150" height="120" fill="white" stroke="#3b82f6" stroke-width="2" rx="8" fill-opacity="0.95"/>
+                    
+                    <!-- Techonstack logo reference -->
+                    <text x="75" y="25" text-anchor="middle" font-size="10" fill="#3b82f6" font-weight="bold">Techonstack Solution</text>
+                    
+                    <text x="75" y="45" text-anchor="middle" font-size="11" fill="#3b82f6" font-weight="bold">✅ 85% Faster</text>
+                    <text x="75" y="60" text-anchor="middle" font-size="10" fill="#666">Procurement Process</text>
+                    <text x="75" y="80" text-anchor="middle" font-size="11" fill="#3b82f6" font-weight="bold">✅ 100% Transparent</text>
+                    <text x="75" y="95" text-anchor="middle" font-size="10" fill="#666">All Operations</text>
+                    <text x="75" y="115" text-anchor="middle" font-size="10" fill="#F7931E" font-weight="bold">techonstack.com</text>
+                </g>
+            
+            </svg>
+        </div>
+
+        <div class="architecture-diagram">
+            <h3 style="text-align: center; color: #3b82f6; margin-bottom: 30px;">Technical Architecture Details</h3>
+            
+            <!-- User Interface Layer -->
+            <div class="layer">
+                <h4>🖥️ User Interface Layer</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                    <div class="component">Admin Dashboard<br><small>Ministry Officials</small></div>
+                    <div class="component">Contractor Portal<br><small>Vendor Interface</small></div>
+                    <div class="component">Mobile App<br><small>Field Officers</small></div>
+                    <div class="component">Public Portal<br><small>Citizens & Stakeholders</small></div>
+                </div>
+            </div>
+            
+            <!-- API Gateway Layer -->
+            <div class="layer">
+                <h4>🔌 API Gateway & Security Layer</h4>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                    <div class="component">API Gateway<br><small>Request Routing</small></div>
+                    <div class="component">Authentication<br><small>OAuth 2.0 / JWT</small></div>
+                    <div class="component">Rate Limiting<br><small>Traffic Management</small></div>
+                </div>
+            </div>
+            
+            <!-- Microservices Layer -->
+            <div class="layer">
+                <h4>⚙️ Microservices Architecture</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                    <div class="component">E-Procurement Service<br><small>Tender Management</small></div>
+                    <div class="component">Project Management<br><small>Timeline & Progress</small></div>
+                    <div class="component">Financial Service<br><small>Budget & Payments</small></div>
+                    <div class="component">Document Service<br><small>File Management</small></div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px;">
+                    <div class="component">Vendor Service<br><small>Contractor Management</small></div>
+                    <div class="component">Compliance Service<br><small>Regulatory Checks</small></div>
+                    <div class="component">Analytics Service<br><small>Reporting & Insights</small></div>
+                    <div class="component">Notification Service<br><small>Email & SMS</small></div>
+                </div>
+            </div>
+            
+            <!-- Business Logic Layer -->
+            <div class="layer">
+                <h4>🧠 Business Logic & Integration Layer</h4>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                    <div class="component">Workflow Engine<br><small>Process Automation</small></div>
+                    <div class="component">Integration Hub<br><small>External Systems</small></div>
+                    <div class="component">AI/ML Engine<br><small>Predictive Analytics</small></div>
+                </div>
+            </div>
+            
+            <!-- Data Layer -->
+            <div class="layer">
+                <h4>💾 Data Storage Layer</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                    <div class="component">PostgreSQL<br><small>Structured Data</small></div>
+                    <div class="component">MongoDB<br><small>Documents & Logs</small></div>
+                    <div class="component">Redis Cache<br><small>Session & Cache</small></div>
+                    <div class="component">File Storage<br><small>Azure Blob / S3</small></div>
+                </div>
+            </div>
+            
+            <!-- Blockchain Layer -->
+            <div class="layer">
+                <h4>⛓️ Blockchain & Audit Layer</h4>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                    <div class="component">Smart Contracts<br><small>Automated Agreements</small></div>
+                    <div class="component">Audit Trail<br><small>Immutable Records</small></div>
+                    <div class="component">Digital Signatures<br><small>Document Verification</small></div>
+                </div>
+            </div>
+            
+            <!-- External Integrations -->
+            <div class="layer">
+                <h4>🔗 External System Integrations</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                    <div class="component">BVN Database<br><small>Identity Verification</small></div>
+                    <div class="component">CAC Registry<br><small>Company Verification</small></div>
+                    <div class="component">CBN Payment<br><small>Banking Integration</small></div>
+                    <div class="component">PENCOM<br><small>Tax Verification</small></div>
+                </div>
+            </div>
+            
+            <!-- Infrastructure Layer -->
+            <div class="layer">
+                <h4>☁️ Cloud Infrastructure & DevOps</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                    <div class="component">Azure/AWS Cloud<br><small>Compute & Storage</small></div>
+                    <div class="component">Kubernetes<br><small>Container Orchestration</small></div>
+                    <div class="component">Monitoring<br><small>Application Performance</small></div>
+                    <div class="component">CI/CD Pipeline<br><small>Automated Deployment</small></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <h3>Data Flow Architecture</h3>
+            <div style="background: white; border: 2px solid #3b82f6; border-radius: 10px; padding: 20px; margin: 20px 0;">
+                <div style="text-align: center;">
+                    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px;">
+                        
+                        <!-- User Request Flow -->
+                        <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 15px; border-radius: 8px; border: 2px solid #F7931E;">
+                            👤 User Request
+                        </div>
+                        
+                        <div style="font-size: 1.5em; color: #F7931E;">→</div>
+                        
+                        <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 15px; border-radius: 8px; border: 2px solid #F7931E;">
+                            🔐 API Gateway
+                        </div>
+                        
+                        <div style="font-size: 1.5em; color: #F7931E;">→</div>
+                        
+                        <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 15px; border-radius: 8px; border: 2px solid #F7931E;">
+                            ⚙️ Microservice
+                        </div>
+                        
+                        <div style="font-size: 1.5em; color: #F7931E;">→</div>
+                        
+                        <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 15px; border-radius: 8px; border: 2px solid #F7931E;">
+                            💾 Database
+                        </div>
+                        
+                        <div style="font-size: 1.5em; color: #F7931E;">→</div>
+                        
+                        <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 15px; border-radius: 8px; border: 2px solid #F7931E;">
+                            ⛓️ Blockchain
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <h3>Security Architecture</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div style="background: white; border: 2px solid #3b82f6; border-radius: 8px; padding: 20px;">
+                    <h4 style="color: #3b82f6; text-align: center;">🛡️ Network Security</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✅ SSL/TLS Encryption</li>
+                        <li>✅ VPN Access</li>
+                        <li>✅ Firewall Protection</li>
+                        <li>✅ DDoS Protection</li>
+                    </ul>
+                </div>
+                <div style="background: white; border: 2px solid #3b82f6; border-radius: 8px; padding: 20px;">
+                    <h4 style="color: #3b82f6; text-align: center;">🔐 Application Security</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✅ OAuth 2.0 Authentication</li>
+                        <li>✅ Role-Based Access Control</li>
+                        <li>✅ Input Validation</li>
+                        <li>✅ Session Management</li>
+                    </ul>
+                </div>
+                <div style="background: white; border: 2px solid #3b82f6; border-radius: 8px; padding: 20px;">
+                    <h4 style="color: #3b82f6; text-align: center;">💾 Data Security</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✅ AES-256 Encryption</li>
+                        <li>✅ Automated Backups</li>
+                        <li>✅ Data Anonymization</li>
+                        <li>✅ Audit Logging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>>
+                        <li>✅ Role-Based Access Control</li>
+                        <li>✅ Input Validation</li>
+                        <li>✅ Session Management</li>
+                    </ul>
+                </div>
+                <div style="background: white; border: 2px solid #3b82f6; border-radius: 8px; padding: 20px;">
+                    <h4 style="color: #3b82f6; text-align: center;">💾 Data Security</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✅ AES-256 Encryption</li>
+                        <li>✅ Automated Backups</li>
+                        <li>✅ Data Anonymization</li>
+                        <li>✅ Audit Logging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>PROCUREMENT PROCESS FLOW</h2>
+        
+        <div class="flow-diagram">
+            <h3 style="text-align: center; color: #3b82f6;">Digital Procurement Lifecycle</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <div class="flow-step">Project Initiation</div>
+                <div class="flow-step">Tender Creation</div>
+                <div class="flow-step">Vendor Registration</div>
+                <div class="flow-step">Bid Submission</div>
+                <div class="flow-step">Evaluation</div>
+                <div class="flow-step">Award</div>
+                <div class="flow-step">Contract Signing</div>
+                <div class="flow-step">Project Execution</div>
+                <div class="flow-step">Completion</div>
+            </div>
+        </div>
+
+        <h3>Detailed Process Steps</h3>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>1. Project Initiation (Days 1-3)</h4>
+                <p>Ministry officials create project requirements, define scope, and set budget parameters through the digital platform. Automated compliance checks ensure all regulatory requirements are met.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>2. Tender Creation & Publishing (Days 4-7)</h4>
+                <p>System automatically generates tender documents, publishes on public portal, and notifies registered vendors. Multi-criteria evaluation framework is established.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>3. Vendor Registration & Verification (Days 8-14)</h4>
+                <p>Contractors register on platform, submit required documents, and undergo automated verification process including CAC, tax clearance, and past performance checks.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>4. Bid Submission (Days 15-35)</h4>
+                <p>Vendors submit bids electronically with required documentation. System ensures bid security, maintains confidentiality, and provides real-time submission tracking.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>5. Evaluation & Scoring (Days 36-42)</h4>
+                <p>Automated evaluation using predefined criteria, manual review for technical aspects, and transparent scoring system. All evaluations are recorded with audit trails.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>6. Award & Contract (Days 43-45)</h4>
+                <p>System generates award letters, unsuccessful bidder notifications, and digital contracts. Automated compliance verification and approval workflows.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>PROJECT MANAGEMENT FLOW</h2>
+        
+        <div class="flow-diagram">
+            <h3 style="text-align: center; color: #3b82f6;">Project Execution & Monitoring</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <div class="flow-step">Project Setup</div>
+                <div class="flow-step">Resource Allocation</div>
+                <div class="flow-step">Timeline Creation</div>
+                <div class="flow-step">Progress Tracking</div>
+                <div class="flow-step">Quality Control</div>
+                <div class="flow-step">Payment Processing</div>
+                <div class="flow-step">Final Delivery</div>
+            </div>
+        </div>
+
+        <h3>Real-Time Monitoring Features</h3>
+        <div class="highlight-box">
+            <h4>📊 Live Dashboard Metrics</h4>
+            <ul>
+                <li><strong>Progress Tracking:</strong> Real-time percentage completion with photo documentation</li>
+                <li><strong>Budget Monitoring:</strong> Expenditure vs. budget with variance analysis</li>
+                <li><strong>Timeline Management:</strong> Critical path analysis and delay notifications</li>
+                <li><strong>Quality Assurance:</strong> Automated quality checkpoints and approvals</li>
+                <li><strong>Risk Management:</strong> Predictive risk assessment and mitigation alerts</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>CURRENT CHALLENGES & SOLUTIONS</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+            <div>
+                <h3 style="color: #dc3545;">Current Pain Points</h3>
+                <ul>
+                    <li>Manual processes causing 6-month delays</li>
+                    <li>Limited transparency in contractor selection</li>
+                    <li>Poor project visibility and tracking</li>
+                    <li>Fragmented stakeholder communication</li>
+                    <li>Compliance gaps and documentation issues</li>
+                    <li>Budget overruns and timeline delays</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: #28a745;">Our Solutions</h3>
+                <ul>
+                    <li>Automated workflows reducing time to 6 weeks</li>
+                    <li>100% transparent bid evaluation process</li>
+                    <li>Real-time project monitoring dashboards</li>
+                    <li>Integrated communication platform</li>
+                    <li>Built-in compliance checking system</li>
+                    <li>Predictive analytics for budget control</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>FINANCIAL INVESTMENT & ROI</h2>
+        
+        <h3>Total Investment: ₦2.8 Billion over 18 months</h3>
+        
+        <table class="financial-table">
+            <thead>
+                <tr>
+                    <th>Phase</th>
+                    <th>Duration</th>
+                    <th>Investment</th>
+                    <th>Key Deliverables</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Phase 1: Foundation</td>
+                    <td>Months 1-3</td>
+                    <td>₦600 Million</td>
+                    <td>Platform setup, pilot program, training</td>
+                </tr>
+                <tr>
+                    <td>Phase 2: Core Deployment</td>
+                    <td>Months 4-8</td>
+                    <td>₦1.2 Billion</td>
+                    <td>Full e-procurement, project management</td>
+                </tr>
+                <tr>
+                    <td>Phase 3: Advanced Features</td>
+                    <td>Months 9-12</td>
+                    <td>₦600 Million</td>
+                    <td>AI/ML integration, blockchain features</td>
+                </tr>
+                <tr>
+                    <td>Phase 4: Expansion</td>
+                    <td>Months 13-18</td>
+                    <td>₦400 Million</td>
+                    <td>State-level deployment, optimization</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <h3>💰 Projected Annual Savings: ₦15 Billion</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 15px;">
+                <div>
+                    <h4>Process Efficiency</h4>
+                    <span style="font-size: 1.5em; font-weight: bold;">₦5B</span>
+                    <p>Reduced procurement cycle times</p>
+                </div>
+                <div>
+                    <h4>Competitive Bidding</h4>
+                    <span style="font-size: 1.5em; font-weight: bold;">₦7B</span>
+                    <p>Cost savings through competition</p>
+                </div>
+                <div>
+                    <h4>Project Efficiency</h4>
+                    <span style="font-size: 1.5em; font-weight: bold;">₦3B</span>
+                    <p>Improved delivery timelines</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>TECHNICAL SPECIFICATIONS</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <h3>Technology Stack</h3>
+                <ul>
+                    <li><strong>Frontend:</strong> React.js with TypeScript</li>
+                    <li><strong>Mobile:</strong> React Native for iOS/Android</li>
+                    <li><strong>Backend:</strong> Node.js with Express.js</li>
+                    <li><strong>Database:</strong> PostgreSQL + MongoDB</li>
+                    <li><strong>Cloud:</strong> Microsoft Azure/AWS</li>
+                    <li><strong>Security:</strong> OAuth 2.0, JWT, AES-256</li>
+                    <li><strong>AI/ML:</strong> Python with TensorFlow</li>
+                    <li><strong>Blockchain:</strong> Ethereum/Hyperledger</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Performance Metrics</h3>
+                <ul>
+                    <li><strong>Uptime:</strong> 99.9% guaranteed availability</li>
+                    <li><strong>Response Time:</strong> <2 seconds for all interactions</li>
+                    <li><strong>Concurrent Users:</strong> 10,000+ supported</li>
+                    <li><strong>Data Processing:</strong> Real-time analytics</li>
+                    <li><strong>Storage:</strong> Unlimited with automated backup</li>
+                    <li><strong>Security:</strong> Bank-level encryption</li>
+                    <li><strong>Scalability:</strong> Auto-scaling infrastructure</li>
+                    <li><strong>Integration:</strong> API-first architecture</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>IMPLEMENTATION TIMELINE</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>Phase 1: Foundation (Months 1-3)</h4>
+                <p><strong>System Architecture Setup:</strong> Cloud infrastructure deployment, security framework implementation, basic user management system</p>
+                <p><strong>Pilot Program Launch:</strong> 5 medium-scale projects, 50 ministry staff trained, 100 contractors onboarded</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>Phase 2: Core Deployment (Months 4-8)</h4>
+                <p><strong>Full E-Procurement Module:</strong> Complete tender management system, vendor registration and verification, automated evaluation</p>
+                <p><strong>Project Management Integration:</strong> Real-time monitoring dashboards, mobile field reporting, financial tracking</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>Phase 3: Advanced Features (Months 9-12)</h4>
+                <p><strong>AI-Powered Analytics:</strong> Predictive risk assessment, automated quality control, performance optimization</p>
+                <p><strong>Blockchain Integration:</strong> Immutable audit trails, smart contract automation, enhanced transparency</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>Phase 4: Expansion (Months 13-18)</h4>
+                <p><strong>State-Level Integration:</strong> Extension to state ministries, inter-governmental collaboration, standardized reporting</p>
+                <p><strong>Advanced Analytics:</strong> National infrastructure metrics, budget optimization, predictive maintenance</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>SUCCESS METRICS & KPIs</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">45</span>
+                Average Procurement Days (vs 180 current)
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">85%</span>
+                Projects Completed On-Time
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">90%</span>
+                Budget Adherence Rate
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">95%</span>
+                Quality Acceptance Rate
+            </div>
+        </div>
+
+        <h3>Transparency & Accountability Metrics</h3>
+        <div class="highlight-box">
+            <ul>
+                <li><strong>Vendor Participation:</strong> 300% increase in competitive bids</li>
+                <li><strong>Transparency Score:</strong> 95% stakeholder satisfaction rating</li>
+                <li><strong>Audit Trail:</strong> 100% complete documentation for all transactions</li>
+                <li><strong>Compliance Rate:</strong> 99% adherence to procurement regulations</li>
+                <li><strong>Public Access:</strong> Real-time project status for all citizens</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>COMPETITIVE ADVANTAGES</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div>
+                <h3>🏆 Technical Excellence</h3>
+                <ul>
+                    <li>Local development team</li>
+                    <li>Cutting-edge technology</li>
+                    <li>Mobile-first design</li>
+                    <li>Offline capability</li>
+                </ul>
+            </div>
+            <div>
+                <h3>🎯 Market Position</h3>
+                <ul>
+                    <li>Government sector focus</li>
+                    <li>Proven track record</li>
+                    <li>24/7 local support</li>
+                    <li>Regulatory expertise</li>
+                </ul>
+            </div>
+            <div>
+                <h3>🚀 Innovation Leadership</h3>
+                <ul>
+                    <li>AI integration</li>
+                    <li>Blockchain transparency</li>
+                    <li>Open architecture</li>
+                    <li>Continuous innovation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>RISK MITIGATION STRATEGY</h2>
+        
+        <table class="financial-table">
+            <thead>
+                <tr>
+                    <th>Risk Category</th>
+                    <th>Potential Impact</th>
+                    <th>Mitigation Strategy</th>
+                    <th>Contingency Plan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Technical Risks</td>
+                    <td>System downtime, data loss</td>
+                    <td>99.9% uptime SLA, automated backups</td>
+                    <td>Immediate failover, 24/7 monitoring</td>
+                </tr>
+                <tr>
+                    <td>Operational Risks</td>
+                    <td>User resistance, low adoption</td>
+                    <td>Comprehensive training, change management</td>
+                    <td>Phased rollout, stakeholder engagement</td>
+                </tr>
+                <tr>
+                    <td>Financial Risks</td>
+                    <td>Budget overruns, payment delays</td>
+                    <td>Fixed-price contracts, milestone payments</td>
+                    <td>Flexible payment terms, performance bonds</td>
+                </tr>
+                <tr>
+                    <td>Security Risks</td>
+                    <td>Data breaches, cyber attacks</td>
+                    <td>Bank-level encryption, regular audits</td>
+                    <td>Incident response plan, cyber insurance</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>CONCLUSION & NEXT STEPS</h2>
+        
+        <div class="highlight-box">
+            <h3>🎯 Immediate Benefits</h3>
+            <ul>
+                <li>Transform procurement processes from months to weeks</li>
+                <li>Ensure complete transparency in contractor selection</li>
+                <li>Reduce project costs through competitive bidding</li>
+                <li>Improve project delivery timelines and quality</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h3>🌟 Long-term Impact</h3>
+            <ul>
+                <li>Establish Nigeria as a leader in digital governance</li>
+                <li>Attract international development partners and investors</li>
+                <li>Create sustainable framework for infrastructure development</li>
+                <li>Generate significant cost savings for taxpayers</li>
+            </ul>
+        </div>
+
+        <h3>Recommended Next Steps</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>1. Stakeholder Presentation</h4>
+                <p>Schedule comprehensive presentation with key ministry officials and technical team</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2. Pilot Project Selection</h4>
+                <p>Identify 5 appropriate projects for initial deployment and testing</p>
+            </div>
+            <div class="timeline-item">
+                <h4>3. Technical Review</h4>
+                <p>Conduct detailed technical evaluation with ministry IT team</p>
+            </div>
+            <div class="timeline-item">
+                <h4>4. Contract Negotiation</h4>
+                <p>Finalize terms, pricing, and implementation timeline</p>
+            </div>
+            <div class="timeline-item">
+                <h4>5. Project Kickoff</h4>
+                <p>Begin Phase 1 implementation within 30 days of contract signing</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>CONTACT INFORMATION</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+                <h3>Company Details</h3>
+                <p><strong>Company:</strong> Techonstack LTD</p>
+                <p><strong>Email:</strong> ibrahimembash@gmail.com</p>
+                <p><strong>Website:</strong> techonstack.com</p>
+            </div>
+            <div>
+                <h3>Partnership Opportunity</h3>
+                <p><strong>Ready to Transform:</strong> Nigeria's Infrastructure Procurement</p>
+                <p><strong>Available for:</strong> Immediate Consultation</p>
+                <p><strong>Response Time:</strong> Within 24 Hours</p>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <p style="text-align: center; font-size: 1.2em; margin: 0;">
+                <strong>This proposal represents our commitment to transforming Nigeria's infrastructure procurement through innovative technology solutions. We look forward to partnering with the Ministry of Works to build a more efficient, transparent, and accountable system for all Nigerians.</strong>
+            </p>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; border-radius: 10px; margin-top: 30px;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 15px;">
+            <div>
+                <h3 style="margin: 0; font-size: 1.5em;">Techonstack LTD</h3>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;">Transforming Nigeria's Digital Infrastructure</p>
+            </div>
+        </div>
+        <p style="margin: 0; font-size: 0.9em; opacity: 0.8;">© 2025 Techonstack LTD. All rights reserved. | Confidential and Proprietary</p>
+        <p style="margin: 5px 0 0 0; font-size: 0.9em; opacity: 0.8;">techonstack.com | ibrahimembash@gmail.com</p>
+    </div>
+</body>
+</html>

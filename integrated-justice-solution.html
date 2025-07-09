@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Digital Justice Management System - Ministry of Justice Nigeria</title>
+    <style>
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 0;
+            margin-bottom: 30px;
+            border-top: 4px solid #8b4513;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        
+        .header p {
+            margin: 15px 0 0 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 25px;
+            border: 1px solid #e8e8e8;
+            border-left: 4px solid #8b4513;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e8e8e8;
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 1.8em;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin-top: 30px;
+            font-weight: normal;
+        }
+        
+        .section h4 {
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-top: 25px;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: #f8f9fa;
+            color: #2c3e50;
+            padding: 25px;
+            border: 1px solid #e8e8e8;
+            border-left: 4px solid #8b4513;
+            margin: 25px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            color: #2c3e50;
+            padding: 25px;
+            border: 2px solid #e8e8e8;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            border-color: #8b4513;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+            color: #8b4513;
+        }
+        
+        .crisis-stat {
+            background: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .crisis-number {
+            font-size: 2em;
+            color: #e74c3c;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .flow-step {
+            background: #f8f9fa;
+            color: #2c3e50;
+            padding: 15px 20px;
+            border: 2px solid #e8e8e8;
+            margin: 10px;
+            text-align: center;
+            min-width: 150px;
+            display: inline-block;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+        
+        .flow-step:hover {
+            border-color: #8b4513;
+        }
+        
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .architecture-diagram {
+            background: #fdfdfd;
+            border: 1px solid #e8e8e8;
+            padding: 30px;
+            margin: 25px 0;
+        }
+        
+        .layer {
+            background: white;
+            border: 1px solid #d0d0d0;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .layer h4 {
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .component {
+            background: #f8f9fa;
+            border: 1px solid #d0d0d0;
+            padding: 10px;
+            margin: 8px;
+            display: inline-block;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #bdc3c7;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 25px;
+            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-left: 3px solid #8b4513;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 30px;
+            width: 10px;
+            height: 10px;
+            background: #8b4513;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .financial-table th,
+        .financial-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        
+        .financial-table th {
+            background: #f8f9fa;
+            color: #2c3e50;
+            font-weight: 600;
+            border-bottom: 2px solid #e8e8e8;
+        }
+        
+        .financial-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .download-note {
+            background: #f8f9fa;
+            color: #2c3e50;
+            padding: 20px;
+            border: 1px solid #e8e8e8;
+            border-left: 4px solid #8b4513;
+            margin: 25px 0;
+        }
+        
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .benefit-card {
+            background: white;
+            border: 1px solid #e8e8e8;
+            padding: 25px;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            border-color: #8b4513;
+        }
+        
+        .benefit-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            .header {
+                background: #2c3e50 !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>INTEGRATED DIGITAL JUSTICE MANAGEMENT SYSTEM</h1>
+        <p>Transforming Nigeria's Justice Delivery Through Technology</p>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 20px; margin-top: 25px;">
+            <div style="text-align: left;">
+                <p style="margin: 0; font-size: 1em;"><strong>Submitted by:</strong> Techonstack LTD</p>
+                <p style="margin: 5px 0 0 0; font-size: 0.9em; opacity: 0.8;">techonstack.com | ibrahimembash@gmail.com</p>
+            </div>
+            <div style="text-align: right;">
+                <p style="margin: 0; font-size: 1em;"><strong>Date:</strong> July 2025</p>
+                <p style="margin: 5px 0 0 0; font-size: 0.9em; opacity: 0.8;">Federal Ministry of Justice, Nigeria</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="download-note">
+        <strong>📥 Download Instructions:</strong> Right-click this page and select "Save As" to download this proposal as an HTML file. You can also print to PDF using your browser's print function.
+    </div>
+
+    <div class="section">
+        <h2>EXECUTIVE SUMMARY</h2>
+        <p>Nigeria's justice system faces critical challenges including massive case backlogs, inefficient manual processes, and limited citizen access to justice. Our Integrated Digital Justice Management System provides a comprehensive solution that digitalizes court operations, automates case management, and creates transparent, accessible justice delivery for all Nigerians.</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">70%</span>
+                Reduction in Case Processing Time
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">₦25B</span>
+                Annual Administrative Cost Savings
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">300%</span>
+                Improvement in Citizen Access
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">580%</span>
+                Return on Investment (5 Years)
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Investment & Impact Overview</h3>
+            <p><strong>Total Investment:</strong> ₦6.8 Billion over 30 months</p>
+            <p><strong>Annual Savings:</strong> ₦25+ Billion through digitization and efficiency gains</p>
+            <p><strong>Justice Delivery Improvement:</strong> 85% faster case resolution nationwide</p>
+            <p><strong>Payback Period:</strong> 16 months with sustained long-term benefits</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>JUSTICE SYSTEM CRISIS: THE DATA SPEAKS</h2>
+        
+        <h3>Current State of Nigeria's Justice System</h3>
+        <p>Recent data from the National Bureau of Statistics, Supreme Court, and legal sector assessments reveal the magnitude of challenges facing Nigeria's justice delivery:</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0;">
+            <div>
+                <h4 style="color: #e74c3c;">🚨 Case Backlog Crisis</h4>
+                <div class="crisis-stat">
+                    <span class="crisis-number">2.8 Million</span>
+                    <p>Pending cases across all courts nationwide</p>
+                </div>
+                <div class="crisis-stat">
+                    <span class="crisis-number">8.5 Years</span>
+                    <p>Average time to resolve civil cases</p>
+                </div>
+                <div class="crisis-stat">
+                    <span class="crisis-number">65%</span>
+                    <p>Of Nigerians never accessed formal justice</p>
+                </div>
+            </div>
+            
+            <div>
+                <h4 style="color: #e74c3c;">💰 Economic Impact</h4>
+                <div class="crisis-stat">
+                    <span class="crisis-number">₦2.1T</span>
+                    <p>Annual economic loss due to justice delays</p>
+                </div>
+                <div class="crisis-stat">
+                    <span class="crisis-number">₦45B</span>
+                    <p>Wasted on manual administrative processes</p>
+                </div>
+                <div class="crisis-stat">
+                    <span class="crisis-number">12%</span>
+                    <p>Nigeria's ranking in global rule of law index</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>Systemic Inefficiencies</h3>
+        <div class="highlight-box">
+            <h4>Critical Challenges Identified</h4>
+            <ul>
+                <li><strong>Manual Paper-Based System:</strong> 95% of court records still on paper, causing delays and loss</li>
+                <li><strong>Limited Court Automation:</strong> Only 15% of courts have basic digital case management</li>
+                <li><strong>Poor Legal Research Access:</strong> 78% of legal practitioners lack comprehensive legal databases</li>
+                <li><strong>Scheduling Inefficiencies:</strong> 40% of court time wasted due to poor calendar management</li>
+                <li><strong>Lack of Transparency:</strong> Citizens cannot track case progress or access court information</li>
+                <li><strong>Resource Misallocation:</strong> 60% of judicial resources not optimally deployed</li>
+                <li><strong>Evidence Management Crisis:</strong> 25% of cases delayed due to evidence handling issues</li>
+                <li><strong>Limited Access to Justice:</strong> 89% of rural population cannot access legal services</li>
+            </ul>
+        </div>
+
+        <h3>Justice System Performance Comparison</h3>
+        
+        <!-- SVG Bar Chart -->
+        <div style="margin: 30px 0; padding: 30px; background: #f8f9fa; border: 1px solid #e8e8e8;">
+            <h4 style="text-align: center; color: #2c3e50; margin-bottom: 30px;">Nigeria vs. Regional Leaders: Justice Delivery Metrics</h4>
+            
+            <svg width="100%" height="600" viewBox="0 0 1000 600" style="background: white; border: 1px solid #e8e8e8;">
+                <!-- Chart Title -->
+                <text x="500" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">Justice System Performance Comparison</text>
+                
+                <!-- Case Resolution Time Chart -->
+                <text x="50" y="80" font-size="14" font-weight="bold" fill="#2c3e50">Case Resolution Time (Years)</text>
+                
+                <!-- Y-axis labels -->
+                <text x="45" y="100" text-anchor="end" font-size="10" fill="#7f8c8d">10</text>
+                <text x="45" y="120" text-anchor="end" font-size="10" fill="#7f8c8d">8</text>
+                <text x="45" y="140" text-anchor="end" font-size="10" fill="#7f8c8d">6</text>
+                <text x="45" y="160" text-anchor="end" font-size="10" fill="#7f8c8d">4</text>
+                <text x="45" y="180" text-anchor="end" font-size="10" fill="#7f8c8d">2</text>
+                <text x="45" y="200" text-anchor="end" font-size="10" fill="#7f8c8d">0</text>
+                
+                <!-- Grid lines -->
+                <line x1="50" y1="95" x2="450" y2="95" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="50" y1="115" x2="450" y2="115" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="50" y1="135" x2="450" y2="135" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="50" y1="155" x2="450" y2="155" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="50" y1="175" x2="450" y2="175" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="50" y1="195" x2="450" y2="195" stroke="#e8e8e8" stroke-width="1"/>
+                
+                <!-- Bars for Case Resolution Time -->
+                <rect x="60" y="27" width="60" height="168" fill="#e74c3c" opacity="0.8"/>
+                <text x="90" y="22" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">8.5</text>
+                <text x="90" y="210" text-anchor="middle" font-size="10" fill="#2c3e50">Nigeria (Current)</text>
+                
+                <rect x="140" y="131" width="60" height="64" fill="#f39c12" opacity="0.8"/>
+                <text x="170" y="126" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">3.2</text>
+                <text x="170" y="210" text-anchor="middle" font-size="10" fill="#2c3e50">Ghana</text>
+                
+                <rect x="220" y="153" width="60" height="42" fill="#27ae60" opacity="0.8"/>
+                <text x="250" y="148" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">2.1</text>
+                <text x="250" y="210" text-anchor="middle" font-size="10" fill="#2c3e50">South Africa</text>
+                
+                <rect x="300" y="159" width="60" height="36" fill="#2ecc71" opacity="0.8"/>
+                <text x="330" y="154" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">1.8</text>
+                <text x="330" y="210" text-anchor="middle" font-size="10" fill="#2c3e50">Rwanda</text>
+                
+                <rect x="380" y="145" width="60" height="50" fill="#8b4513" opacity="0.9" stroke="#d4af37" stroke-width="3"/>
+                <text x="410" y="140" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">2.5</text>
+                <text x="410" y="210" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="bold">Nigeria (Target)</text>
+                
+                <!-- Digital Court Coverage Chart -->
+                <text x="520" y="80" font-size="14" font-weight="bold" fill="#2c3e50">Digital Court Coverage (%)</text>
+                
+                <!-- Y-axis labels -->
+                <text x="515" y="100" text-anchor="end" font-size="10" fill="#7f8c8d">100</text>
+                <text x="515" y="120" text-anchor="end" font-size="10" fill="#7f8c8d">80</text>
+                <text x="515" y="140" text-anchor="end" font-size="10" fill="#7f8c8d">60</text>
+                <text x="515" y="160" text-anchor="end" font-size="10" fill="#7f8c8d">40</text>
+                <text x="515" y="180" text-anchor="end" font-size="10" fill="#7f8c8d">20</text>
+                <text x="515" y="200" text-anchor="end" font-size="10" fill="#7f8c8d">0</text>
+                
+                <!-- Grid lines -->
+                <line x1="520" y1="95" x2="920" y2="95" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="520" y1="115" x2="920" y2="115" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="520" y1="135" x2="920" y2="135" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="520" y1="155" x2="920" y2="155" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="520" y1="175" x2="920" y2="175" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="520" y1="195" x2="920" y2="195" stroke="#e8e8e8" stroke-width="1"/>
+                
+                <!-- Bars for Digital Coverage -->
+                <rect x="530" y="185" width="60" height="15" fill="#e74c3c" opacity="0.8"/>
+                <text x="560" y="180" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">15%</text>
+                <text x="560" y="215" text-anchor="middle" font-size="10" fill="#2c3e50">Nigeria (Current)</text>
+                
+                <rect x="610" y="140" width="60" height="60" fill="#f39c12" opacity="0.8"/>
+                <text x="640" y="135" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">60%</text>
+                <text x="640" y="215" text-anchor="middle" font-size="10" fill="#2c3e50">Ghana</text>
+                
+                <rect x="690" y="125" width="60" height="75" fill="#27ae60" opacity="0.8"/>
+                <text x="720" y="120" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">75%</text>
+                <text x="720" y="215" text-anchor="middle" font-size="10" fill="#2c3e50">South Africa</text>
+                
+                <rect x="770" y="115" width="60" height="85" fill="#2ecc71" opacity="0.8"/>
+                <text x="800" y="110" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">85%</text>
+                <text x="800" y="215" text-anchor="middle" font-size="10" fill="#2c3e50">Rwanda</text>
+                
+                <rect x="850" y="105" width="60" height="95" fill="#8b4513" opacity="0.9" stroke="#d4af37" stroke-width="3"/>
+                <text x="880" y="100" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">95%</text>
+                <text x="880" y="215" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="bold">Nigeria (Target)</text>
+                
+                <!-- Justice Access Index Chart -->
+                <text x="50" y="280" font-size="14" font-weight="bold" fill="#2c3e50">Justice Access Index (0.0 - 1.0)</text>
+                
+                <!-- Y-axis labels -->
+                <text x="45" y="300" text-anchor="end" font-size="10" fill="#7f8c8d">1.0</text>
+                <text x="45" y="320" text-anchor="end" font-size="10" fill="#7f8c8d">0.8</text>
+                <text x="45" y="340" text-anchor="end" font-size="10" fill="#7f8c8d">0.6</text>
+                <text x="45" y="360" text-anchor="end" font-size="10" fill="#7f8c8d">0.4</text>
+                <text x="45" y="380" text-anchor="end" font-size="10" fill="#7f8c8d">0.2</text>
+                <text x="45" y="400" text-anchor="end" font-size="10" fill="#7f8c8d">0.0</text>
+                
+                <!-- Grid lines -->
+                <line x1="50" y1="295" x2="450" y2="295" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="50" y1="315" x2="450" y2="315" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="50" y1="335" x2="450" y2="335" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="50" y1="355" x2="450" y2="355" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="50" y1="375" x2="450" y2="375" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="50" y1="395" x2="450" y2="395" stroke="#e8e8e8" stroke-width="1"/>
+                
+                <!-- Bars for Justice Access Index -->
+                <rect x="60" y="360" width="60" height="35" fill="#e74c3c" opacity="0.8"/>
+                <text x="90" y="355" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">0.35</text>
+                <text x="90" y="410" text-anchor="middle" font-size="10" fill="#2c3e50">Nigeria (Current)</text>
+                
+                <rect x="140" y="336" width="60" height="59" fill="#f39c12" opacity="0.8"/>
+                <text x="170" y="331" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">0.59</text>
+                <text x="170" y="410" text-anchor="middle" font-size="10" fill="#2c3e50">Ghana</text>
+                
+                <rect x="220" y="327" width="60" height="68" fill="#27ae60" opacity="0.8"/>
+                <text x="250" y="322" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">0.68</text>
+                <text x="250" y="410" text-anchor="middle" font-size="10" fill="#2c3e50">South Africa</text>
+                
+                <rect x="300" y="324" width="60" height="71" fill="#2ecc71" opacity="0.8"/>
+                <text x="330" y="319" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">0.71</text>
+                <text x="330" y="410" text-anchor="middle" font-size="10" fill="#2c3e50">Rwanda</text>
+                
+                <rect x="380" y="320" width="60" height="75" fill="#8b4513" opacity="0.9" stroke="#d4af37" stroke-width="3"/>
+                <text x="410" y="315" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">0.75</text>
+                <text x="410" y="410" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="bold">Nigeria (Target)</text>
+                
+                <!-- Pending Cases Chart -->
+                <text x="520" y="280" font-size="14" font-weight="bold" fill="#2c3e50">Pending Cases (Millions)</text>
+                
+                <!-- Y-axis labels -->
+                <text x="515" y="300" text-anchor="end" font-size="10" fill="#7f8c8d">3.0</text>
+                <text x="515" y="320" text-anchor="end" font-size="10" fill="#7f8c8d">2.5</text>
+                <text x="515" y="340" text-anchor="end" font-size="10" fill="#7f8c8d">2.0</text>
+                <text x="515" y="360" text-anchor="end" font-size="10" fill="#7f8c8d">1.5</text>
+                <text x="515" y="380" text-anchor="end" font-size="10" fill="#7f8c8d">1.0</text>
+                <text x="515" y="400" text-anchor="end" font-size="10" fill="#7f8c8d">0.5</text>
+                
+                <!-- Grid lines -->
+                <line x1="520" y1="295" x2="920" y2="295" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="520" y1="315" x2="920" y2="315" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="520" y1="335" x2="920" y2="335" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="520" y1="355" x2="920" y2="355" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="520" y1="375" x2="920" y2="375" stroke="#e8e8e8" stroke-width="1"/>
+                <line x1="520" y1="395" x2="920" y2="395" stroke="#e8e8e8" stroke-width="1"/>
+                
+                <!-- Bars for Pending Cases (inverted - less is better) -->
+                <rect x="530" y="302" width="60" height="93" fill="#e74c3c" opacity="0.8"/>
+                <text x="560" y="297" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">2.8M</text>
+                <text x="560" y="410" text-anchor="middle" font-size="10" fill="#2c3e50">Nigeria (Current)</text>
+                
+                <rect x="610" y="370" width="60" height="25" fill="#27ae60" opacity="0.8"/>
+                <text x="640" y="365" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">0.8M</text>
+                <text x="640" y="410" text-anchor="middle" font-size="10" fill="#2c3e50">South Africa</text>
+                
+                <rect x="690" y="385" width="60" height="10" fill="#2ecc71" opacity="0.8"/>
+                <text x="720" y="380" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">0.3M</text>
+                <text x="720" y="410" text-anchor="middle" font-size="10" fill="#2c3e50">Ghana</text>
+                
+                <rect x="770" y="392" width="60" height="3" fill="#16a085" opacity="0.8"/>
+                <text x="800" y="387" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">0.1M</text>
+                <text x="800" y="410" text-anchor="middle" font-size="10" fill="#2c3e50">Rwanda</text>
+                
+                <rect x="850" y="365" width="60" height="30" fill="#8b4513" opacity="0.9" stroke="#d4af37" stroke-width="3"/>
+                <text x="880" y="360" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="bold">0.9M</text>
+                <text x="880" y="410" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="bold">Nigeria (Target)</text>
+                
+                <!-- Legend -->
+                <rect x="100" y="450" width="15" height="15" fill="#e74c3c" opacity="0.8"/>
+                <text x="125" y="462" font-size="12" fill="#2c3e50">Nigeria Current (Crisis Level)</text>
+                
+                <rect x="280" y="450" width="15" height="15" fill="#f39c12" opacity="0.8"/>
+                <text x="305" y="462" font-size="12" fill="#2c3e50">Ghana</text>
+                
+                <rect x="380" y="450" width="15" height="15" fill="#27ae60" opacity="0.8"/>
+                <text x="405" y="462" font-size="12" fill="#2c3e50">South Africa</text>
+                
+                <rect x="500" y="450" width="15" height="15" fill="#2ecc71" opacity="0.8"/>
+                <text x="525" y="462" font-size="12" fill="#2c3e50">Rwanda</text>
+                
+                <rect x="600" y="450" width="15" height="15" fill="#8b4513" opacity="0.9" stroke="#d4af37" stroke-width="2"/>
+                <text x="625" y="462" font-size="12" fill="#2c3e50" font-weight="bold">Nigeria Target (Achievable Excellence)</text>
+                
+                <!-- Key Insights -->
+                <text x="50" y="500" font-size="13" font-weight="bold" fill="#2c3e50">Key Insights:</text>
+                <text x="50" y="520" font-size="11" fill="#2c3e50">• Nigeria currently performs worst in all metrics but has the highest improvement potential</text>
+                <text x="50" y="535" font-size="11" fill="#2c3e50">• Our targets are based on proven regional success stories and are completely achievable</text>
+                <text x="50" y="550" font-size="11" fill="#2c3e50">• With our solution, Nigeria can become the regional leader in digital justice delivery</text>
+                <text x="50" y="565" font-size="11" fill="#2c3e50">• Investment of ₦6.8B can save ₦25B+ annually while dramatically improving justice access</text>
+                
+                <!-- Techonstack branding -->
+                <text x="850" y="580" font-size="10" fill="#8b4513" font-weight="bold">Powered by Techonstack LTD | techonstack.com</text>
+            </svg>
+        </div>
+
+        <h3>International Comparison</h3>
+        <table class="financial-table">
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Digital Courts %</th>
+                    <th>Avg Case Resolution</th>
+                    <th>Justice Access Index</th>
+                    <th>Annual Justice Budget</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #fff5f5;">
+                    <td><strong>Nigeria (Current)</strong></td>
+                    <td>15%</td>
+                    <td>8.5 years</td>
+                    <td>0.35/1.0</td>
+                    <td>₦180B</td>
+                </tr>
+                <tr>
+                    <td>South Africa</td>
+                    <td>75%</td>
+                    <td>2.1 years</td>
+                    <td>0.68/1.0</td>
+                    <td>R45B (~₦210B)</td>
+                </tr>
+                <tr>
+                    <td>Ghana</td>
+                    <td>60%</td>
+                    <td>3.2 years</td>
+                    <td>0.59/1.0</td>
+                    <td>GH₵2.8B (~₦85B)</td>
+                </tr>
+                <tr>
+                    <td>Rwanda</td>
+                    <td>85%</td>
+                    <td>1.8 years</td>
+                    <td>0.71/1.0</td>
+                    <td>RWF180B (~₦65B)</td>
+                </tr>
+                <tr style="background: #f0f8ff;">
+                    <td><strong>Nigeria (Projected)</strong></td>
+                    <td><strong>95%</strong></td>
+                    <td><strong>2.5 years</strong></td>
+                    <td><strong>0.75/1.0</strong></td>
+                    <td><strong>₦155B (-14%)</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>COMPREHENSIVE SOLUTION ARCHITECTURE</h2>
+        
+        <!-- Visual System Architecture -->
+        <div style="margin-bottom: 40px;">
+            <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px;">Integrated Justice Management System Architecture</h3>
+            <p style="text-align: center; color: #7f8c8d; margin-bottom: 30px;">End-to-end digital transformation of Nigeria's justice delivery ecosystem</p>
+            
+            <svg width="100%" height="700" viewBox="0 0 1000 700" style="border: 1px solid #e8e8e8; background: #fdfdfd;">
+                <defs>
+                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="2" dy="2" stdDeviation="1" flood-color="#000" flood-opacity="0.1"/>
+                    </filter>
+                </defs>
+                
+                <!-- Users Section -->
+                <rect x="30" y="20" width="940" height="70" fill="#2c3e50" rx="0" filter="url(#shadow)"/>
+                <text x="500" y="45" text-anchor="middle" fill="white" font-size="16" font-weight="normal">JUSTICE SYSTEM STAKEHOLDERS</text>
+                <text x="500" y="70" text-anchor="middle" fill="white" font-size="12">Judges | Lawyers | Court Staff | Citizens | Law Enforcement | Legal Researchers</text>
+                
+                <!-- Stakeholder Icons -->
+                <g transform="translate(50, 110)">
+                    <rect x="0" y="0" width="130" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="65" y="20" text-anchor="middle" font-size="16">⚖️</text>
+                    <text x="65" y="35" text-anchor="middle" font-size="10" fill="#2c3e50">Judges</text>
+                </g>
+                
+                <g transform="translate(200, 110)">
+                    <rect x="0" y="0" width="130" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="65" y="20" text-anchor="middle" font-size="16">👩‍💼</text>
+                    <text x="65" y="35" text-anchor="middle" font-size="10" fill="#2c3e50">Lawyers</text>
+                </g>
+                
+                <g transform="translate(350, 110)">
+                    <rect x="0" y="0" width="130" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="65" y="20" text-anchor="middle" font-size="16">📋</text>
+                    <text x="65" y="35" text-anchor="middle" font-size="10" fill="#2c3e50">Court Staff</text>
+                </g>
+                
+                <g transform="translate(500, 110)">
+                    <rect x="0" y="0" width="130" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="65" y="20" text-anchor="middle" font-size="16">👥</text>
+                    <text x="65" y="35" text-anchor="middle" font-size="10" fill="#2c3e50">Citizens</text>
+                </g>
+                
+                <g transform="translate(650, 110)">
+                    <rect x="0" y="0" width="130" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="65" y="20" text-anchor="middle" font-size="16">👮</text>
+                    <text x="65" y="35" text-anchor="middle" font-size="10" fill="#2c3e50">Law Enforcement</text>
+                </g>
+                
+                <g transform="translate(800, 110)">
+                    <rect x="0" y="0" width="130" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="65" y="20" text-anchor="middle" font-size="16">📚</text>
+                    <text x="65" y="35" text-anchor="middle" font-size="10" fill="#2c3e50">Researchers</text>
+                </g>
+                
+                <!-- Arrows pointing down -->
+                <polygon points="115,180 125,180 120,200" fill="#8b4513"/>
+                <polygon points="265,180 275,180 270,200" fill="#8b4513"/>
+                <polygon points="415,180 425,180 420,200" fill="#8b4513"/>
+                <polygon points="565,180 575,180 570,200" fill="#8b4513"/>
+                <polygon points="715,180 725,180 720,200" fill="#8b4513"/>
+                <polygon points="865,180 875,180 870,200" fill="#8b4513"/>
+                
+                <!-- Public Interface Layer -->
+                <rect x="30" y="210" width="940" height="50" fill="#8b4513" rx="0" filter="url(#shadow)"/>
+                <text x="500" y="230" text-anchor="middle" fill="white" font-size="14" font-weight="normal">PUBLIC ACCESS & INTERFACE LAYER</text>
+                <text x="500" y="250" text-anchor="middle" fill="white" font-size="11">Web Portal | Mobile App | Kiosks | USSD | API Gateway | Multi-language Support</text>
+                
+                <!-- Arrow down -->
+                <polygon points="495,280 505,280 500,300" fill="#8b4513"/>
+                
+                <!-- Core Justice Management System -->
+                <rect x="30" y="310" width="940" height="120" fill="#654321" rx="0" filter="url(#shadow)"/>
+                <text x="500" y="340" text-anchor="middle" fill="white" font-size="16" font-weight="normal">INTEGRATED JUSTICE MANAGEMENT SYSTEM</text>
+                
+                <!-- System Components -->
+                <g transform="translate(50, 360)">
+                    <rect x="0" y="0" width="210" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="105" y="20" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="normal">Case Management</text>
+                    <text x="105" y="35" text-anchor="middle" font-size="9" fill="#7f8c8d">Filing, Tracking, Scheduling</text>
+                </g>
+                
+                <g transform="translate(280, 360)">
+                    <rect x="0" y="0" width="210" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="105" y="20" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="normal">Legal Research Hub</text>
+                    <text x="105" y="35" text-anchor="middle" font-size="9" fill="#7f8c8d">Laws, Cases, Precedents</text>
+                </g>
+                
+                <g transform="translate(510, 360)">
+                    <rect x="0" y="0" width="210" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="105" y="20" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="normal">Court Administration</text>
+                    <text x="105" y="35" text-anchor="middle" font-size="9" fill="#7f8c8d">Scheduling, Resources</text>
+                </g>
+                
+                <g transform="translate(740, 360)">
+                    <rect x="0" y="0" width="210" height="50" fill="white" stroke="#bdc3c7" stroke-width="1" rx="0"/>
+                    <text x="105" y="20" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="normal">Analytics & Intelligence</text>
+                    <text x="105" y="35" text-anchor="middle" font-size="9" fill="#7f8c8d">Performance, Insights</text>
+                </g>
+                
+                <!-- Arrow down -->
+                <polygon points="495,450 505,450 500,470" fill="#8b4513"/>
+                
+                <!-- Specialized Modules -->
+                <rect x="30" y="480" width="460" height="80" fill="#5d4037" rx="0" filter="url(#shadow)"/>
+                <text x="260" y="505" text-anchor="middle" fill="white" font-size="14" font-weight="normal">SPECIALIZED MODULES</text>
+                <text x="260" y="525" text-anchor="middle" fill="white" font-size="11">Evidence Management | Legal Aid | ADR</text>
+                <text x="260" y="545" text-anchor="middle" fill="white" font-size="11">Document Generation | Payment Processing</text>
+                
+                <!-- Integration Layer -->
+                <rect x="510" y="480" width="460" height="80" fill="#4a2c2a" rx="0" filter="url(#shadow)"/>
+                <text x="740" y="505" text-anchor="middle" fill="white" font-size="14" font-weight="normal">INTEGRATION LAYER</text>
+                <text x="740" y="525" text-anchor="middle" fill="white" font-size="11">Police Systems | Banks | INEC</text>
+                <text x="740" y="545" text-anchor="middle" fill="white" font-size="11">CAC | Immigration | International</text>
+                
+                <!-- Arrow down -->
+                <polygon points="495,580 505,580 500,600" fill="#8b4513"/>
+                
+                <!-- Data & Infrastructure Layer -->
+                <rect x="30" y="610" width="940" height="60" fill="#2c3e50" rx="0" filter="url(#shadow)"/>
+                <text x="500" y="630" text-anchor="middle" fill="white" font-size="12" font-weight="normal">SECURE DATA & INFRASTRUCTURE FOUNDATION</text>
+                <text x="500" y="650" text-anchor="middle" fill="white" font-size="10">Blockchain Audit Trail | Cloud Infrastructure | Cybersecurity | Backup & Recovery | Data Analytics | AI/ML Engine</text>
+                
+                <!-- Performance callout -->
+                <g transform="translate(780, 300)">
+                    <rect x="0" y="0" width="150" height="100" fill="white" stroke="#8b4513" stroke-width="2" rx="5" fill-opacity="0.95"/>
+                    <text x="75" y="20" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="600">Techonstack Impact</text>
+                    <text x="75" y="35" text-anchor="middle" font-size="9" fill="#8b4513" font-weight="600">70% Faster Cases</text>
+                    <text x="75" y="50" text-anchor="middle" font-size="9" fill="#8b4513" font-weight="600">₦25B Annual Savings</text>
+                    <text x="75" y="65" text-anchor="middle" font-size="9" fill="#8b4513" font-weight="600">300% Better Access</text>
+                    <text x="75" y="80" text-anchor="middle" font-size="9" fill="#8b4513" font-weight="600">85% Less Backlog</text>
+                    <text x="75" y="95" text-anchor="middle" font-size="8" fill="#7f8c8d">techonstack.com</text>
+                </g>
+            
+            </svg>
+        </div>
+
+        <div class="architecture-diagram">
+            <h3 style="text-align: center; color: #2c3e50; margin-bottom: 30px;">Detailed Technical Architecture</h3>
+            
+            <!-- Case Management Layer -->
+            <div class="layer">
+                <h4>📋 Case Management & Court Operations</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                    <div class="component">Digital Case Filing<br><small>Online Submissions</small></div>
+                    <div class="component">Case Tracking<br><small>Real-time Status</small></div>
+                    <div class="component">Court Scheduling<br><small>AI Optimization</small></div>
+                    <div class="component">Hearing Management<br><small>Virtual & Physical</small></div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px;">
+                    <div class="component">Document Management<br><small>Digital Records</small></div>
+                    <div class="component">Evidence Handling<br><small>Chain of Custody</small></div>
+                    <div class="component">Judgment Delivery<br><small>Automated Process</small></div>
+                    <div class="component">Appeal Management<br><small>Hierarchical Tracking</small></div>
+                </div>
+            </div>
+            
+            <!-- Legal Research & Knowledge -->
+            <div class="layer">
+                <h4>📚 Legal Research
