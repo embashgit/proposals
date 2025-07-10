@@ -15,28 +15,112 @@
             background-color: #ffffff;
         }
         
+        .document::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #1a7f5c 0%, #27ae60 25%, #1a7f5c 50%, #27ae60 75%, #1a7f5c 100%);
+        }
+        
         .header {
-            background: #2c3e50;
+            background: 
+            radial-gradient(circle at 20% 80%, rgb(32 101 21 / 54%) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgb(39 174 83 / 23%) 0%, transparent 50%), linear-gradient(135deg, rgb(26 75 58 / 0%) 0%, rgba(44, 62, 80, 0.8) 100%),
+                url('./nassss.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: white;
-            padding: 40px;
+            padding: 60px 40px;
             text-align: center;
-            border-radius: 0;
-            margin-bottom: 30px;
-            border-top: 4px solid #27ae60;
+            position: relative;
+            background-attachment: fixed;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(26, 127, 92, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(39, 174, 96, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(26, 75, 58, 0.7) 0%, rgba(44, 62, 80, 0.7) 100%);
+        }
+
+        .header > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #27ae60 50%, transparent 100%);
         }
         
         .header h1 {
-            margin: 0;
-            font-size: 2.2em;
-            font-weight: normal;
-            letter-spacing: 1px;
+            font-size: 2.8em;
+            font-weight: 400;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            color: #ffffff;
+            background: rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 5px;
+            backdrop-filter: blur(2px);
         }
-        
-        .header p {
-            margin: 15px 0 0 0;
-            font-size: 1.1em;
-            opacity: 0.9;
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 300;
             font-style: italic;
+            color: #e8f5e8;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.1);
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px auto;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+        }
+
+        .header .company-info {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 1em;
+            opacity: 0.9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .company-info .left-info {
+            text-align: left;
+        }
+
+        .header .company-info .right-info {
+            text-align: right;
+        }
+
+        .header .company-info strong {
+            color: #27ae60;
+        }
+
+        .content {
+            padding: 50px 40px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fffe 100%);
         }
         
         .section {
@@ -340,7 +424,7 @@
             </div>
             <div style="text-align: right;">
                 <p style="margin: 0; font-size: 1em;"><strong>Date:</strong> July 2025</p>
-                <p style="margin: 5px 0 0 0; font-size: 0.9em; opacity: 0.8;">National Assembly & Federal Ministry of Justice</p>
+                <p style="margin: 5px 0 0 0; font-size: 0.9em; opacity: 0.8;">National Assembly</p>
             </div>
         </div>
     </div>
@@ -1183,7 +1267,7 @@
         <div class="timeline">
             <div class="timeline-item">
                 <h4>1. Stakeholder Alignment & Leadership Presentation (Weeks 1-2)</h4>
-                <p>Comprehensive presentation to National Assembly leadership, Federal Ministry of Justice, and key state representatives to secure political buy-in and support.</p>
+                <p>Comprehensive presentation to National Assembly leadership and key state representatives to secure political buy-in and support.</p>
             </div>
             
             <div class="timeline-item">
